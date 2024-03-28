@@ -1,0 +1,118 @@
+.app {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  width: 100vw;
+  transition: background-color 0.25s ease-in-out;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem 0;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.navbar ul {
+  list-style-type: none;
+  display: flex;
+}
+
+.navbar ul li:not(:last-child) {
+  margin-right: 3rem;
+}
+
+.navbar p,
+.navbar ul li {
+  color: var(--text-accent-color);
+  cursor: pointer;
+}
+
+.navbar ul li:hover {
+  color: var(--accent-color-hover);
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4.5rem;
+  gap: 2rem;
+}
+
+.header-left {
+  width: 70%;
+}
+
+.header-left h1 {
+  font-size: 2.8rem;
+  color: var(--text-accent-color);
+}
+
+.header-copy {
+  margin: 1.5rem 0;
+}
+
+.header .btn-primary {
+  margin-right: 0.5rem;
+}
+
+.header .btn-primary:hover {
+  background-color: var(--accent-color-hover);
+  border-color: var(--accent-color-hover);
+}
+
+.btn {
+  background: none;
+  border: solid 1px var(--accent-color);
+  border-radius: 0.125rem;
+  padding: 0.75rem 2rem;
+  cursor: pointer;
+}
+
+.btn a {
+  text-decoration: none;
+  background: none;
+  color: var(--white);
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+}
+
+.btn-secondary {
+  background-color: none;
+}
+
+.btn-secondary a {
+  color: var(--text-accent-color);
+}
+
+/* theme-toggle */
+.react-toggle-track-check,
+.react-toggle-track-x {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .react-toggle:focus {
+  outline: none;
+} */
+
+/* media queries */
+@media (max-width: 900px) {
+  .header-left {
+    width: 100%;
+  }
+  .header-right {
+    display: none;
+  }
+}
