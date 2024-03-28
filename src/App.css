@@ -10,7 +10,9 @@
 .navbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 3rem 0;
+  position: relative;
 }
 
 .logo {
@@ -20,21 +22,44 @@
 
 .navbar ul {
   list-style-type: none;
-  display: flex;
+  display: none;
 }
 
-.navbar ul li:not(:last-child) {
-  margin-right: 3rem;
-}
-
-.navbar p,
-.navbar ul li {
+.navbar p {
   color: var(--text-accent-color);
   cursor: pointer;
 }
 
+.navbar ul li {
+  color: var(--white);
+  cursor: pointer;
+}
+
 .navbar ul li:hover {
-  color: var(--accent-color-hover);
+  color: var(--white-hover);
+}
+
+/* nav-mobile */
+.nav-mobile img {
+  cursor: pointer;
+}
+
+.nav-mobile ul {
+  display: none;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  background-color: var(--accent-color);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  height: 350px;
+  gap: 2.5rem;
+}
+
+.nav-mobile.active ul {
+  display: flex;
 }
 
 /* Header */
@@ -42,12 +67,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 4.5rem;
   gap: 2rem;
+  margin-top: 2.5rem;
 }
 
 .header-left {
-  width: 70%;
 }
 
 .header-left h1 {
@@ -66,6 +90,11 @@
 .header .btn-primary:hover {
   background-color: var(--accent-color-hover);
   border-color: var(--accent-color-hover);
+}
+
+.header-right {
+  visibility: hidden;
+  display: none;
 }
 
 .btn {
@@ -108,11 +137,54 @@
 } */
 
 /* media queries */
-@media (max-width: 900px) {
+@media (min-width: 760px) {
+  .nav-mobile ul {
+    width: 400px;
+  }
+}
+
+@media (min-width: 1250px) {
+  .header {
+    margin-top: 4.5rem;
+  }
   .header-left {
-    width: 100%;
+    width: 70%;
   }
   .header-right {
+    visibility: initial;
+    display: initial;
+  }
+
+  /* navbar */
+  .nav-mobile ul {
     display: none;
+  }
+
+  .nav-mobile img {
+    display: none;
+  }
+
+  .navbar ul {
+    display: initial;
+    position: initial;
+    width: auto;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 0;
+  }
+  .navbar ul li:not(:last-child) {
+    margin-right: 3rem;
+  }
+
+  .navbar ul li {
+    color: var(--text-accent-color);
+  }
+
+  .navbar ul li:hover {
+    color: var(--li-hover);
   }
 }

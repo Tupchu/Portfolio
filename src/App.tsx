@@ -4,30 +4,41 @@ import "react-toggle/style.css";
 import Toggle from "react-toggle";
 import { RoughNotation } from "react-rough-notation";
 import useLocalStorage from "use-local-storage";
+import HamburgerIcon from "./assets/icons8-menu-36.svg";
+import { useState } from "react";
 
 function App() {
   const preference = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const [isDarkMode, setIsDarkMode] = useLocalStorage("isDarkMode", preference);
+  const [mobileMenuActive, setMobileMenuActive] = useState(false);
+
   return (
     <div data-theme={isDarkMode ? "dark" : "light"} className="app">
       <nav className="navbar container">
         <p className="logo">Timothy Upchurch</p>
-        <ul>
-          <li>Home</li>
-          <li>Projects</li>
-          <li>
-            <Toggle
-              defaultChecked={isDarkMode}
-              icons={{
-                checked: "☀️",
-                unchecked: "🌙",
-              }}
-              aria-label="toggle theme"
-              onChange={() => setIsDarkMode((prev) => !prev)}
-              className="theme-toggle"
-            />
-          </li>
-        </ul>
+        <div className={`nav-mobile ${mobileMenuActive ? "active" : ""}`}>
+          <img
+            src={HamburgerIcon}
+            alt="Hamburger Icon"
+            onClick={() => setMobileMenuActive((prev) => !prev)}
+          />
+          <ul>
+            <li>Home</li>
+            <li>Projects</li>
+            <li>
+              <Toggle
+                defaultChecked={isDarkMode}
+                icons={{
+                  checked: "☀️",
+                  unchecked: "🌙",
+                }}
+                aria-label="toggle theme"
+                onChange={() => setIsDarkMode((prev) => !prev)}
+                className="theme-toggle"
+              />
+            </li>
+          </ul>
+        </div>
       </nav>
 
       <header className="header container">
@@ -99,8 +110,8 @@ function App() {
                 animationDelay={3000}
                 animationDuration={500}
                 strokeWidth={3}
-                padding={[14, 4]}
                 iterations={1}
+                multiline={true}
               >
                 Contact me!
               </RoughNotation>
