@@ -17,7 +17,7 @@
 
 .logo {
   font-weight: bold;
-  font-size: 1.6rem;
+  font-size: var(--fs--500);
 }
 
 .navbar ul {
@@ -33,6 +33,7 @@
 .navbar ul li {
   color: var(--white);
   cursor: pointer;
+  font-size: var(--fs-body);
 }
 
 .navbar ul li:hover {
@@ -75,7 +76,7 @@
 }
 
 .header-left h1 {
-  font-size: 2.8rem;
+  font-size: var(--fs-xl);
   color: var(--text-accent-color);
 }
 
@@ -99,25 +100,26 @@
 
 .btn {
   background: none;
-  border: solid 1px var(--accent-color);
-  border-radius: 0.125rem;
-  padding: 0.75rem 2rem;
+  padding: 0.25rem 1rem;
   cursor: pointer;
+  border-style: solid;
+  border-width: 10px 10px 10px 10px;
+  border-image: url("./assets/button.svg") 10 10 10 10 stretch stretch;
 }
 
 .btn a {
   text-decoration: none;
   background: none;
-  color: var(--white);
   font-weight: bold;
+  color: var(--text-accent-color);
 }
 
 .btn-primary {
-  background-color: var(--accent-color);
+  /* background-color: var(--accent-color); */
 }
 
 .btn-secondary {
-  background-color: none;
+  /* background-color: none; */
 }
 
 .btn-secondary a {
@@ -125,6 +127,18 @@
 }
 
 /* theme-toggle */
+.theme-toggle {
+  display: flex;
+}
+.theme-toggle .react-toggle-track {
+  background-color: var(--accent-color);
+}
+.theme-toggle .react-toggle-thumb {
+  border: none;
+}
+.react-toggle--checked .react-toggle-track {
+  background-color: var(--accent-color);
+}
 .react-toggle-track-check,
 .react-toggle-track-x {
   display: flex;
@@ -132,9 +146,12 @@
   align-items: center;
 }
 
-/* .react-toggle:focus {
-  outline: none;
-} */
+.theme-toggle .react-toggle-thumb {
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+}
 
 /* media queries */
 @media (min-width: 760px) {

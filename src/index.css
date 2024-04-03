@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Handlee&family=Merienda&display=swap");
+
 :root {
   /* general */
   --accent-color: #191c36;
@@ -10,13 +13,26 @@
   --text-accent-color: #191c36;
   --bg-color: #f4f4f4;
   --li-hover: #363c5e;
+
+  /* font-sizes */
+  --fs-xl: clamp(2rem, 2vw + 1rem, 8rem);
+  --fs--600: 2rem;
+  --fs--500: 1.325rem;
+  --fs-400: 1rem;
+  --fs-300: 0.875rem;
+  --fs-body: 1rem;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: "Handlee", cursive;
+}
+
+.title {
+  font-family: "Merienda", cursive;
 }
 
 [data-theme="dark"] {
@@ -33,13 +49,43 @@ h4,
 h5,
 h6 {
   color: var(--text-accent-color);
+  /* font-family: "Merienda", cursive; */
 }
 
-p {
+p,
+.heading-p {
   line-height: 1.5;
+  font-size: var(--fs-body);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+span {
+  font-family: "Merienda", cursive;
 }
 
 .container {
   max-width: 75%;
   margin-inline: auto;
+}
+
+.react-toggle--checked .react-toggle-track {
+  background-color: var(--accent-color);
+}
+.react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
+  background-color: var(--accent-color);
+}
+.react-toggle--focus .react-toggle-thumb {
+  box-shadow: none;
+}
+
+/* media queries */
+@media (min-width: 760px) {
+  :root {
+    --fs--600: 3rem;
+    --fs--500: 1.5rem;
+    --fs-400: 1.125rem;
+    --fs-300: 1rem;
+
+    --fs-body: 1.125rem;
+  }
 }

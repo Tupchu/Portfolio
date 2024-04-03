@@ -15,7 +15,7 @@ function App() {
   return (
     <div data-theme={isDarkMode ? "dark" : "light"} className="app">
       <nav className="navbar container">
-        <p className="logo">Timothy Upchurch</p>
+        <p className="logo title">Timothy Upchurch</p>
         <div className={`nav-mobile ${mobileMenuActive ? "active" : ""}`}>
           <img
             src={HamburgerIcon}
@@ -25,25 +25,24 @@ function App() {
           <ul>
             <li>Home</li>
             <li>Projects</li>
-            <li>
-              <Toggle
-                defaultChecked={isDarkMode}
-                icons={{
-                  checked: "☀️",
-                  unchecked: "🌙",
-                }}
-                aria-label="toggle theme"
-                onChange={() => setIsDarkMode((prev) => !prev)}
-                className="theme-toggle"
-              />
-            </li>
+            <li>Contact</li>
+            <Toggle
+              defaultChecked={isDarkMode}
+              icons={{
+                checked: "☀️",
+                unchecked: "🌙",
+              }}
+              aria-label="toggle theme"
+              onChange={() => setIsDarkMode((prev) => !prev)}
+              className="theme-toggle"
+            />
           </ul>
         </div>
       </nav>
 
       <header className="header container">
         <div className="header-left">
-          <h1>
+          <h1 className="title">
             Hello! I'm Timothy, a{" "}
             <RoughNotation
               type="highlight"
@@ -71,7 +70,7 @@ function App() {
                 padding={1}
                 iterations={1}
               >
-                scalability
+                <span className="heading-p">scalability</span>
               </RoughNotation>{" "}
               and{" "}
               <RoughNotation
@@ -84,7 +83,7 @@ function App() {
                 padding={1}
                 iterations={1}
               >
-                performance
+                <span className="heading-p">performance</span>
               </RoughNotation>{" "}
               in mind. I love building clean, accessible, and mobile-responsive
               websites.
@@ -113,7 +112,7 @@ function App() {
                 iterations={1}
                 multiline={true}
               >
-                Contact me!
+                <span className="heading-p">Contact me!</span>
               </RoughNotation>
             </p>
           </div>
